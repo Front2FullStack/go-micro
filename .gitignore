@@ -1,0 +1,10 @@
+.dbdata
+tmp
+.idea
+.vscode/
+
+# Ignore code-workspaces
+*.code-workspace
+.DS_Store
+frontApp
+brokerApp
