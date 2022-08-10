@@ -1,4 +1,4 @@
-.dbdata
+db-data
 tmp
 .idea
 .vscode/
@@ -8,3 +8,4 @@ tmp
 .DS_Store
 frontApp
 brokerApp
+authApp
