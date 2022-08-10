@@ -1,0 +1,2 @@
+# Post call to check broker service
+POST  http://localhost:8002
