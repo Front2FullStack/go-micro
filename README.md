@@ -13,12 +13,12 @@ This repository demonstrates a basic service-to-service flow:
 ## Services
 
 ### Frontend
-- Location: `/home/runner/work/go-micro/go-micro/front-end`
+- Location: `./front-end`
 - Purpose: serves a test page with buttons that call the broker endpoints
 - Default port: `80`
 
 ### Broker service
-- Location: `/home/runner/work/go-micro/go-micro/broker-service`
+- Location: `./broker-service`
 - Purpose: entry point for API requests and request routing
 - Default port: `8002` on the host (`80` in the container)
 - Key endpoints:
@@ -26,7 +26,7 @@ This repository demonstrates a basic service-to-service flow:
   - `POST /handle` request dispatcher
 
 ### Auth service
-- Location: `/home/runner/work/go-micro/go-micro/auth-service`
+- Location: `./auth-service`
 - Purpose: validates user credentials against PostgreSQL
 - Default port: `8081` on the host (`80` in the container)
 - Key endpoint:
@@ -60,7 +60,7 @@ Install the following before starting:
 
 ### 1. Build and start backend services
 
-From `/home/runner/work/go-micro/go-micro/project`, run:
+From `./project`, run:
 
 ```bash
 make up_build
@@ -79,7 +79,7 @@ make down
 
 ### 2. Start the frontend
 
-From `/home/runner/work/go-micro/go-micro/project`, run:
+From `./project`, run:
 
 ```bash
 make start
@@ -118,16 +118,13 @@ The auth service expects a PostgreSQL database named `users` and a `users` table
 - `created_at`
 - `updated_at`
 
-The frontend sends the sample credentials below when the **Test Auth** button is clicked:
+The frontend currently posts demo credentials defined in `./front-end/cmd/web/templates/test.page.gohtml` when the **Test Auth** button is clicked.
 
-- email: `admin@example.com`
-- password: `verysecret`
-
-Make sure your local database contains a matching user record if you want the demo authentication flow to succeed.
+Make sure your local database contains a matching user record, or update the frontend template to use credentials that exist in your local environment.
 
 ## Helpful commands
 
-Run these from `/home/runner/work/go-micro/go-micro/project`:
+Run these from `./project`:
 
 ```bash
 make build_broker
@@ -157,8 +154,8 @@ Content-Type: application/json
 {
   "action": "auth",
   "auth": {
-    "email": "admin@example.com",
-    "password": "verysecret"
+    "email": "your-user@example.com",
+    "password": "<your-password>"
   }
 }
 ```
